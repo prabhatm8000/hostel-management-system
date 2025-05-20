@@ -24,8 +24,7 @@ import {
     deleteNotification,
     getNotifications,
 } from "../apiClient";
-import { useNotificationStore } from "../store/store";
-import { useUserStore } from "../store/store";
+import { useNotificationStore, useUserStore } from "../store/store";
 
 const Notification = () => {
     const notifications = useNotificationStore((s) => s.notifications);
@@ -118,7 +117,7 @@ const Notification = () => {
                                 <TableCell>{n.message}</TableCell>
                                 <TableCell>
                                     {n.created_at
-                                        ? new Date(n.created_at.replace(" ", "T") + "Z").toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+                                        ? new Date(n.created_at).toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
                                         : "-"}
                                 </TableCell>
                                 <TableCell className="flex gap-2 items-center">
